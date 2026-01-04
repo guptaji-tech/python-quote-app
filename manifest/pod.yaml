@@ -6,7 +6,7 @@ spec:
   serviceAccountName: my-ksa
   containers:
   - name: app
-    image: guptajitech/python-quote-app:v2
+    image: guptajitech/python-quote-app:v3
     ports:
       - containerPort: 5000
     envFrom:
