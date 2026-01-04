@@ -27,7 +27,7 @@ HTML_TEMPLATE = """
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: linear-gradient(to right, #56ab2f, #a8e063);
             color: white;
             display: flex;
             justify-content: center;

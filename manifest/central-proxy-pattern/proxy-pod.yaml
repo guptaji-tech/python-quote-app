@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cloudsql-proxy
+  labels:
+    app: cloudsql-proxy
+spec:
+  serviceAccountName: my-ksa
+  containers:
+  - name: cloudsql-proxy
+    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.11.4
+    ports:
+      - containerPort: 5432
+    args:
+      - "--private-ip"
+      - "--address=0.0.0.0"
+      - "--auto-iam-authn"
+      - "--structured-logs"
+      - "--port=5432"
+      - "guptaji-tech-public:asia-south1:my-db"
+    securityContext:
+      runAsNonRoot: true
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "200m"

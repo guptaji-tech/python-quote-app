@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudsql-proxy-service
+  labels:
+    app: cloudsql-proxy
+spec:
+  type: ClusterIP
+  selector:
+    app: cloudsql-proxy
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+      name: http

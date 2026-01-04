@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: green-app-cm
+data:
+  DATABASE_URL: "cloudsql-proxy-service.default.svc.cluster.local"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "my-app-db"
+  DATABASE_USER: "my-gsa@guptaji-tech-public.iam"
+  DATABASE_MODE: "disable"
