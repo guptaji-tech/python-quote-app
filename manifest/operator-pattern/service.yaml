@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quote-app-service
+  labels:
+    app: quote-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: quote-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+      name: http

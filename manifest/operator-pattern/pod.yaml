@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quote-app
+  labels:
+    app: quote-app
+spec:
+  serviceAccountName: my-ksa
+  containers:
+  - name: app
+    image: guptajitech/python-quote-app:v3
+    ports:
+      - containerPort: 5000
+    envFrom:
+      - configMapRef:
+          name: quote-app-cm
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "200m"

@@ -1,0 +1,15 @@
+apiVersion: cloudsql.cloud.google.com/v1
+kind: AuthProxyWorkload
+metadata:
+  name: my-authproxyworkload
+spec:
+  workloadSelector:
+    kind: "Pod"
+    selector:
+      matchLabels:
+        app: "quote-app"
+  instances:
+  - connectionString: "guptaji-tech-public:asia-south1:my-db"
+    portEnvName: "DATABASE_PORT"
+    hostEnvName: "DATABASE_URL"
+    autoIAMAuthN: true
